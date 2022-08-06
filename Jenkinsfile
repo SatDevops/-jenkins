@@ -29,6 +29,13 @@ pipeline {
          
             }
         }
+    stage('two' ) {
+        when { environment name: 'CHOICE', value: 'One' }
+        steps {
+                   sh "echo This Stage is executed as this Choice is ONE"
+            }
+        }
+
     //   stage('Two' ) {
     //     input {
     //             message "Should we continue?"
