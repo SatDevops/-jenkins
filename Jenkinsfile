@@ -15,10 +15,8 @@ pipeline {
         ENV_URL= "Pilpline.google URL"
        // SSH_CRED = credentials('SSH-Cenos7')
     }
-    triggers {
-        cron(*/2 * * * *)
-    }
-    stages {
+   
+     stages {
         stage('stage one' ) {
             steps {
                 echo 'heloo task one'
