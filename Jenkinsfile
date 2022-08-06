@@ -1,8 +1,6 @@
 pipeline {
     agent any
-      //   triggers {
-    //    cron('*/2 * * * *')
-   // }
+
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
@@ -17,6 +15,9 @@ pipeline {
     environment{
         ENV_URL= "Pilpline.google URL"
        // SSH_CRED = credentials('SSH-Cenos7')
+    }
+     tools {
+        maven 'maven-3.8.6' 
     }
    
      stages {
