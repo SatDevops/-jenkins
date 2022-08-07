@@ -63,18 +63,18 @@ pipeline {
             parallel {
             stage('One') {
                 steps {
-                    sh "sleep 1"
-                    
+                    sh "sleep 3"
+                    sh "curl ifconfig.co"
                 }
             }
             stage('Two') {
                 steps {
-                    sh "sleep 2"
+                    sh "sleep 4"
                 }
             }
             stage('Three') {
                 steps {
-                    sh "sleep 3"
+                    sh "sleep 5"
                 }
             }
         }
@@ -90,5 +90,17 @@ pipeline {
             }
         }
     }
+post {
+    aborted {
+        sh "echo Job was aborted"
+    }
 
+    success {
+        sh "echo Job Completed Successfully"
+    }
+
+    failure {
+       cleanWs()
+    }
+  }
 }
