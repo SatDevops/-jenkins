@@ -57,7 +57,7 @@
 
 
 pipeline {
-    agent any
+    agent { label 'java' } 
     stages {
         stage('Parallel Stages') {
             parallel {
@@ -90,5 +90,17 @@ pipeline {
             }
         }
     }
+post {
+    aborted {
+        sh "echo Job was aborted"
+    }
 
+    success {
+        sh "echo Job Completed Successfully"
+    }
+
+    failure {
+       cleanWs()
+    }
+  }
 }
