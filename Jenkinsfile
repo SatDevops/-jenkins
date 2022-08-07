@@ -90,17 +90,5 @@ pipeline {
             }
         }
     }
-post {
-    aborted {
-        sh "echo Job was aborted"
-    }
 
-    success {
-        sh "echo Job Completed Successfully"
-    }
-
-    failure {
-       cleanWs()
-    }
-  }
 }
