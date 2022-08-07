@@ -63,18 +63,18 @@ pipeline {
             parallel {
             stage('One') {
                 steps {
-                    sh "sleep 3"
+                    sh "sleep 1"
                     
                 }
             }
             stage('Two') {
                 steps {
-                    sh "sleep 4"
+                    sh "sleep 2"
                 }
             }
             stage('Three') {
                 steps {
-                    sh "sleep 5"
+                    sh "sleep 3"
                 }
             }
         }
